@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 id="result" style="font-style: italic"></h2>
+<script>
+    function checkSnt(a) {
+        if (a < 2) {
+            return false
+        } else {
+            for (let i = 2; i <= Math.sqrt(a); i++) {
+                if (a % i === 0) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
+    function tongSnt(number) {
+        let count = 0;
+        let sum = 0;
+        for (let N = 2; count <= number; N++) {
+            if (checkSnt(N)) {
+                count++;
+                sum += N;
+            }
+        }
+
+        return sum;
+    }
+
+    let numbers = prompt("Nhập số lượng số nguyên tố cần tính tổng: ")
+    document.getElementById("result").innerHTML = "Tổng của " + numbers + " số nguyên tố đầu tiên là: " + tongSnt(numbers)
+
+</script>
+</body>
+</html>
